@@ -1,4 +1,17 @@
 {
-    "rootDirectory": "./dist"
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.ts",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "dest": "/index.ts" }
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
   
