@@ -1,7 +1,7 @@
 import express from "express";
-import connectDB from "./src/config/database";
+import connectDB from "./config/database";
 import cors from 'cors';
-import dataRoutes from './src/routes/dataRoutes';
+import dataRoutes from './routes/dataRoutes';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 dotenv.config();
