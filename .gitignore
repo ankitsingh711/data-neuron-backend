@@ -1,8 +1,1 @@
 node_modules/
-
-dist/
-
-.env
-.vscode/
-.env.local
-package-lock.json
