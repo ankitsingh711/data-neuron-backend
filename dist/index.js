@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const database_1 = __importDefault(require("./config/database"));
+const database_1 = __importDefault(require("./src/config/database"));
 const cors_1 = __importDefault(require("cors"));
-const dataRoutes_1 = __importDefault(require("./routes/dataRoutes"));
+const dataRoutes_1 = __importDefault(require("./src/routes/dataRoutes"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const morgan_1 = __importDefault(require("morgan"));
 dotenv_1.default.config();
