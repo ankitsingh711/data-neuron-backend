@@ -14,16 +14,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCount = exports.updateData = exports.addData = void 0;
 const dataModel_1 = __importDefault(require("../model/dataModel"));
+const counterModel_1 = __importDefault(require("../model/counterModel"));
 // Controller function to add new data
 const addData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name } = req.body;
-        const newData = new dataModel_1.default({ name });
+        // Check if there is any existing data
+        const existingData = yield dataModel_1.default.find({});
+        if (existingData.length > 0) {
+            // Clear existing data
+            yield dataModel_1.default.deleteMany({});
+        }
+        const newData = new dataModel_1.default(req.body);
         yield newData.save();
-        res.status(201).json({ message: 'Data added successfully' });
+        res.status(201).json(newData);
     }
-    catch (error) {
-        res.status(500).json({ message: 'Server error' });
+    catch (err) {
+        console.error("Error adding data", err);
+        res.status(500).json({ error: "Error adding data" });
     }
 });
 exports.addData = addData;
@@ -31,24 +38,26 @@ exports.addData = addData;
 const updateData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { name } = req.body;
-        yield dataModel_1.default.findByIdAndUpdate(id, { name });
-        res.status(200).json({ message: 'Data updated successfully' });
+        const updatedData = req.body;
+        yield dataModel_1.default.findByIdAndUpdate(id, updatedData);
+        res.status(200).json({ message: "Data updated successfully" });
     }
-    catch (error) {
-        res.status(500).json({ message: 'Server error' });
+    catch (err) {
+        console.error("Error updating data", err);
+        res.status(500).json({ error: "Error updating data" });
     }
 });
 exports.updateData = updateData;
 // Controller function to get count of add/update requests
 const getCount = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // Logic to get count from middleware or database
-        const count = 0; // Placeholder, implement logic to get count
-        res.status(200).json({ count });
+        const counters = yield counterModel_1.default.find({});
+        console.log(counters);
+        res.status(200).json(counters);
     }
-    catch (error) {
-        res.status(500).json({ message: 'Server error' });
+    catch (err) {
+        console.error("Error retrieving counts", err);
+        res.status(500).json({ error: "Error retrieving counts" });
     }
 });
 exports.getCount = getCount;

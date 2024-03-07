@@ -24,11 +24,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const dataSchema = new mongoose_1.Schema({
-    name: { type: String, required: true },
-    description: { type: String, require: true },
-    countAdd: { type: Number, default: 0 },
-    countUpdate: { type: Number, default: 0 }
+const CountersSchema = new mongoose_1.Schema({
+    addCount: { type: Number, default: 0 },
+    updateCount: { type: Number, default: 0 },
 });
-const Data = mongoose_1.default.model('Data', dataSchema);
-exports.default = Data;
+exports.default = mongoose_1.default.model('Counters', CountersSchema);
