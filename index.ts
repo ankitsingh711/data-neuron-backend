@@ -6,6 +6,8 @@ import userRoutes from './src/routes/userRoutes';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import responseTime from 'response-time';
+import cookieParser from 'cookie-parser';
+import redisClient from "./src/config/redis";
 dotenv.config();
   
 const app = express();
@@ -21,6 +23,7 @@ const PORT = process.env.PORT || 5000;
 // using cors for cross-origin-resource-policy
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 app.use('/', dataRoutes);
 app.use('/', userRoutes);
@@ -28,9 +31,10 @@ app.use('/', userRoutes);
 
 
 // listening to the port
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   try {
     connectDB();
+    // redisClient();
     console.log(`Server is running on port ${PORT}`);
   } catch (error) {
     console.log(`Error while connecting to Database ${error}`);

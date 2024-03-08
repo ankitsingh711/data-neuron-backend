@@ -1,0 +1,11 @@
+[2024-03-08T20:18:37.858] [ERROR] default - Error during signup: MessageRejected: Email address is not verified. The following identities failed the check in region AP-SOUTH-1: yurajsingh300@gmail.com
+    at Request.extractError (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\protocol\query.js:50:29)
+    at Request.callListeners (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Ankit\DataNeuron Task\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)

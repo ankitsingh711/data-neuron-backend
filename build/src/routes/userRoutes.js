@@ -9,4 +9,7 @@ const authenticationMiddleware_1 = require("../middleware/authenticationMiddlewa
 const router = express_1.default.Router();
 router.post('/login', authenticationMiddleware_1.authenticateToken, userController_1.login);
 router.post('/register', userController_1.register);
+router.post('/logout', userController_1.logout);
+router.post('/reset-password', authenticationMiddleware_1.authenticateToken, userController_1.resetPassword);
+router.post('/reset-password/:token', userController_1.resetPasswordReq);
 exports.default = router;

@@ -10,9 +10,10 @@ const logger = log4js_1.default.getLogger();
 const authenticateToken = (req, res, next) => {
     try {
         const authHeader = req.headers["authorization"];
+        console.log(authHeader);
         const token = authHeader && authHeader.split(" ")[1];
         if (!token)
-            return res.sendStatus(401);
+            return res.sendStatus(401).json({ message: 'Token expired or invalid' });
         jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
             if (err)
                 return res.sendStatus(403);

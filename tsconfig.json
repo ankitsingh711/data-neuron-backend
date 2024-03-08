@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "moduleResolution": "node",
-    "outDir": "dist"
+    "outDir": "build"
   },
   "include": ["src/**/*", "src/services", "src/config", "src/controllers", "src/middleware", "src/models", "src/routes", "index.ts"]
 }
