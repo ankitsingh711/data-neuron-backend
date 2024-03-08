@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCount = exports.updateData = exports.addData = void 0;
-const dataModel_1 = __importDefault(require("../model/dataModel"));
-const counterModel_1 = __importDefault(require("../model/counterModel"));
+const dataModel_1 = __importDefault(require("../models/dataModel"));
+const counterModel_1 = __importDefault(require("../models/counterModel"));
 // Controller function to add new data
 const addData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

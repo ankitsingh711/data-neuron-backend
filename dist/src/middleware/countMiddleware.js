@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.incrementUpdateCount = exports.incrementAddCount = void 0;
-const counterModel_1 = __importDefault(require("../model/counterModel"));
+const counterModel_1 = __importDefault(require("../models/counterModel"));
 const incrementAddCount = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield counterModel_1.default.findOneAndUpdate({}, { $inc: { addCount: 1 } }, { upsert: true });

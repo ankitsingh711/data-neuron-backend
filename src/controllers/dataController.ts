@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import Data from "../model/dataModel";
-import CounterModel from "../model/counterModel";
+import Data from "../models/dataModel";
+import CounterModel from "../models/counterModel";
 
 // Controller function to add new data
 export const addData = async (req: Request, res: Response): Promise<void> => {

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "vercel-build": "npm run build"
@@ -15,12 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.11.24",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "log4js": "^6.9.1",
+    "logger": "^0.0.1",
     "mongoose": "^8.2.1",
     "morgan": "^1.10.0",
+    "response-time": "^2.3.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },

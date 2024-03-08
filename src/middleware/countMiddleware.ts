@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import Counters from '../model/counterModel';
+import Counters from '../models/counterModel';
 
 export const incrementAddCount = async (req: Request, res: Response, next: NextFunction) => {
   try {
