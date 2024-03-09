@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import responseTime from 'response-time';
 import cookieParser from 'cookie-parser';
 import redisClient from "./src/config/redis";
+import { GoogleAuthService } from './src/services/googleAuthService';
 dotenv.config();
   
 const app = express();
@@ -18,6 +19,10 @@ app.use(responseTime());
 
 // define port or port from .env
 const PORT = process.env.PORT || 5000;
+
+// Initialize Passport
+
+GoogleAuthService.configurePassport();
 
 
 // using cors for cross-origin-resource-policy

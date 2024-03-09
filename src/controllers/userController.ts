@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import {ses} from '../config/awsConfig';
 import { logger } from "../config/logging";
 import { sendVerificationEmail } from "../services/emailServices";
+import { googleAuthConfig } from "../config/googleAuth";
+import passport from 'passport';
 dotenv.config();
 
 export const login = async (req: Request, res: Response) => {
@@ -188,5 +190,13 @@ export const emailVerified = ( req: Request, res: Response) => {
   }catch(error){
     logger.error(`Error in redirecting verified email page`)
     res.sendStatus(301).json({ message: 'Error in redirecting to email page'})
+  }
+}
+
+export const GoogleAuthController = {
+  googleAuth: passport.authenticate('google', { scope: ['profile', 'email']}),
+  googleAuthCallback: passport.authenticate('google', { failureRedirect: '/login'}),
+  googleAuthCallbackRedirect(req: Request, res: Response) {
+    res.redirect('/dashboard')
   }
 }
